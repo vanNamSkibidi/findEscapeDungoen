@@ -2,7 +2,6 @@ package newProject.findPath;
 
 import newProject.test2.GamePanel;
 
-import java.util.List;
 import java.util.Stack;
 
 public class PathFinder {
@@ -47,31 +46,27 @@ public class PathFinder {
             if (dir == 0) {//up
                 if (x - 1 > 0 && gp.tileManager.map[x - 1][y] != 1 && gp.tileManager.map[x-1][y] != 4
                         && gp.tileManager.map[x-1][y] != 5&& !visited[x - 1][y]) {
-                    Node temp1 = new Node(x - 1, y);
                     visited[x - 1][y] = true;
-                    stack.push(temp1);
+                    stack.push(new Node(x-1, y));
                 }
             } else if (dir == 1) {//left
                 if (y - 1 > 0 && gp.tileManager.map[x][y - 1] != 1
                         && gp.tileManager.map[x][y - 1] != 4&& gp.tileManager.map[x][y - 1] != 5
                         && !visited[x][y - 1]) {
-                    Node temp1 = new Node(x, y - 1);
                     visited[x][y - 1] = true;
-                    stack.push(temp1);
+                    stack.push(new Node(x, y-1));
                 }
             } else if (dir == 2) {//down
                 if (x + 1 < gp.tileManager.map.length && gp.tileManager.map[x + 1][y] != 1
                         && gp.tileManager.map[x + 1][y] != 4&& gp.tileManager.map[x + 1][y] != 5 && !visited[x + 1][y]) {
-                    Node temp1 = new Node(x + 1, y);
                     visited[x + 1][y] = true;
-                    stack.push(temp1);
+                    stack.push(new Node(x+1, y));
                 }
             } else if (dir == 3) {//right
                 if (y + 1 < gp.tileManager.map[0].length && gp.tileManager.map[x][y + 1] != 1
                         && gp.tileManager.map[x][y + 1] != 4&& gp.tileManager.map[x][y + 1] != 5 && !visited[x][y + 1]) {
-                    Node temp1 = new Node(x, y + 1);
                     visited[x][y + 1] = true;
-                    stack.push(temp1);
+                    stack.push(new Node(x, y+1));
                 }
             } else {
                 stack.pop();
@@ -79,11 +74,17 @@ public class PathFinder {
         }
     }
     public void getPath(int startCol, int startRow, int colTh, int rowTh) {
-        findPathUsingDfs( startCol,  startRow,  colTh,  rowTh);
-        path = new Stack<>();
-        while (!stack.isEmpty()) {
-            path.push(stack.pop());
-        }
-        if (!path.isEmpty()) path.pop();
+
+            findPathUsingDfs(startCol, startRow, colTh, rowTh);
+
+//            gp.keyH.moved=false;
+            path = new Stack<>();
+            while (!stack.isEmpty()) {
+                path.push(stack.pop());
+            }
+
+//        path.pop();
     }
 }
+
+

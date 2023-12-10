@@ -9,104 +9,6 @@ public class Test {
             {1, 0, 1, 0, 0, 1},
             {1, 1, 1, 1, 1, 1}
     };
-//    static class Cell {
-//        int x, y, dist;
-//        Cell parent;
-//
-//        public Cell(int x, int y, int dist, Cell parent) {
-//            this.x = x;
-//            this.y = y;
-//            this.dist = dist;
-//            this.parent = parent;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return x + " " + y;
-//        }
-//    }
-//    static void findPath() {
-//        int sx = 1;
-//        int sy = 1;
-//        int dx = 8;
-//        int dy = 11;
-//        if (matrix[sx][sy] == 1||matrix[dx][dy]==1) return;
-//        Cell[][] cell = new Cell[matrix.length][matrix[0].length];
-//        for (int i = 0; i < matrix.length; i++) {
-//            for (int j = 0; j < matrix[0].length; j++) {
-//                if (matrix[i][j]!=1) {
-//                    cell[i][j] = new Cell(i, j, Integer.MAX_VALUE, null);
-//                }
-//            }
-//        }
-//        LinkedList<Cell> queue = new LinkedList();
-//        Cell src = cell[sx][sy];
-//        src.dist = 0;
-//        queue.offer(src);
-//        Cell dest = null;
-//        Cell p;
-//        while ((p = queue.poll()) != null) {
-//            if (p.x == dx && p.y == dy) {
-//                dest = p; break;
-//            }
-//
-//            visit(cell, queue, p.x - 1, p.y, p);
-//            visit(cell, queue, p.x + 1, p.y, p);
-//            visit(cell, queue, p.x, p.y - 1, p);
-//            visit(cell, queue, p.x, p.y  + 1, p);
-//        }
-//        if (dest==null) return;
-//        else {
-//            LinkedList<Cell> path= new LinkedList<>();
-//            p = dest;
-//            do {
-//                path.addFirst(p);
-//            } while ((p = p.parent) != null);
-//            System.out.println(path);
-//        }
-//    }
-//    public static void visit(Cell[][] cells, LinkedList<Cell> queue, int x, int y, Cell parent) {
-//        if (x < 0 || y < 0 || y >= cells[0].length|| x >= cells.length||cells[x][y]==null) return;
-//        int dist = parent.dist + 1;
-//        Cell p = cells[x][y];
-//        if (dist < p.dist) {
-//            p.dist = dist;
-//            p.parent = parent;
-//            queue.add(p);
-//        }
-//    }
-
-    //    static public List<List<Integer>> allPathsSourceTarget() {
-//        List<List<Integer>> ans = new ArrayList<>();
-//        Queue<List<Integer>> q = new LinkedList<>();
-//        List<Integer> currList = new ArrayList<>();
-//        currList.add(0);
-//        q.add(currList);
-//        while (!q.isEmpty()) {
-//            currList = q.poll();
-//            int v = currList.get(currList.size() - 1);
-//            if (v == matrix.length - 1) {
-//                ans.add(currList);
-//                continue;
-//            }
-//            for (int i : matrix[v]) {
-//                List<Integer> temp = new ArrayList<>(currList);
-//                temp.add(i);
-//                q.add(temp);
-//            }
-//        }
-//        return ans;
-//    }
-//
-//    public static void print(List<List<Integer>> a) {
-//        for (int i = 0; i < a.size(); i++) {
-//            for (int j = 0; j < a.get(i).size(); j++) {
-//                System.out.print(a.get(i).get(j) + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-//
     public static class Node {
         public int x;
         public int y;
@@ -189,9 +91,11 @@ public class Test {
 
     //
     public static void main(String[] args) {
-        getPath(2, 1, 4, 2);
-        while (!path.isEmpty()) {
-            System.out.println(path.peek().y +" "+ path.pop().x);
-        }
+//        getPath(2, 1, 4, 2);
+//        while (!path.isEmpty()) {
+//            System.out.println(path.peek().y +" "+ path.pop().x);
+//        }
+//        Test2 test2 = new Test2();
+//        test2.findPathUsingBFS(1, 2, 2,4);
     }
 }

@@ -16,14 +16,14 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxScreenRow = 12;
     public final int screenWidth = maxScreenCol * tileSize;
     public final int screenHeight = maxScreenRow * tileSize;
-//    public final int maxWorldCol = 47;
-//    public final int maxWorldRow = 56;
+    public final int maxWorldCol = 47;
+    public final int maxWorldRow = 56;
 //    public final int worldWidth = tileSize * maxWorldCol;
 //    public final int worldHeight = tileSize * maxWorldRow;
 
     int FPS = 100;
     Thread gameThread;
-    KeyHandler keyH = new KeyHandler();
+    public KeyHandler keyH = new KeyHandler();
     public Player player = new Player(this, keyH);
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);
@@ -46,28 +46,6 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
     }
-
-    //    @Override
-//    public void run() {
-//        double drawInterval = 1000000000/FPS;
-//        double nextDrawTime = System.nanoTime() + drawInterval;
-//        while (gameThread!=null) {
-//            update();
-//
-//            repaint();
-//            try {
-//                double remainingTime = nextDrawTime - System.nanoTime();
-//                remainingTime = remainingTime/1000000;
-//                if (remainingTime < 0) {
-//                    remainingTime=0;
-//                }
-//                Thread.sleep((long) remainingTime);
-//                nextDrawTime +=drawInterval;
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//    }
     @Override
     public void run() {
         double drawInterval = (double) 1000000000 / FPS;
