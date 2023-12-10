@@ -35,9 +35,9 @@ public class MonkeyDemon extends Entity {
             int eRow = 1;
             searchPath(eCol, eRow);
             onPath = true;
-            gp.pathFinder.path.pop(); // Clear the path after each action
+            gp.pathFinder.path.pop(); 
         }
-        // Update direction based on the next step in the path
+
         if (!gp.pathFinder.path.isEmpty()) {
             PathFinder.Node nextStep = gp.pathFinder.path.peek();
             if (worldX / 48 < nextStep.y) direction = "right";
