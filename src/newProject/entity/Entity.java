@@ -81,14 +81,14 @@ public class Entity {
         checkCollision();
 
         // Update position
-//        if (!collisionOn) {
+        if (!collisionOn) {
             switch (direction) {
                 case "up" -> worldY -= speed;
                 case "down" -> worldY += speed;
                 case "left" -> worldX -= speed;
                 case "right" -> worldX += speed;
             }
-//        }
+        }
 
         // Update sprite
         spriteCounter++;
@@ -98,15 +98,7 @@ public class Entity {
             spriteCounter = 0;
         }
     }
-
-
     public void searchPath(int eCol, int eRow) {
-            gp.pathFinder.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, eCol, eRow);
-        if (!gp.pathFinder.path.isEmpty()) {
-            if ((worldX+ solidArea.x)/48==gp.pathFinder.path.peek().y&&(worldY+ solidArea.y)/48==gp.pathFinder.path.peek().x) gp.pathFinder.path.pop();
-        }
-        if ((worldX+solidArea.x)/48==eCol&&(worldY+ solidArea.y)/48==eRow) {
-            onPath=true;
-        }
+        gp.pathFinder.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, eCol, eRow);
     }
 }

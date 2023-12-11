@@ -2,6 +2,8 @@ package newProject.findPath;
 
 import newProject.test2.GamePanel;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class PathFinder {
@@ -9,7 +11,7 @@ public class PathFinder {
     public class Node {
         public int x;
         public int y;
-        int direction;
+        public int direction;
 
         Node(int x, int y) {
             this.x = x;
@@ -22,7 +24,7 @@ public class PathFinder {
     }
     Stack<Node> stack = new Stack<>();
     boolean[][] visited;
-    public Stack<Node> path;
+    public ArrayList<String> path;
     public void findPathUsingDfs(int startCol, int startRow, int colTh, int rowTh) {
         visited = new boolean[gp.tileManager.map.length][gp.tileManager.map[0].length];
         visited[startRow][startCol]=true;
@@ -78,12 +80,15 @@ public class PathFinder {
             findPathUsingDfs(startCol, startRow, colTh, rowTh);
 
 //            gp.keyH.moved=false;
-            path = new Stack<>();
+            path = new ArrayList<>();
             while (!stack.isEmpty()) {
-                path.push(stack.pop());
+                switch (stack.pop().direction - 1) {
+                    case 0 -> path.add("up");
+                    case 1 -> path.add("left");
+                    case 2 -> path.add("down");
+                    case 3 -> path.add("right");
+                }
             }
-
-//        path.pop();
     }
 }
 

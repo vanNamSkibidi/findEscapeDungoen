@@ -24,12 +24,12 @@ public class Player extends Entity {
         solidArea = new Rectangle(12, 24, 24, 24);
         setDefaultValues();
         getPlayerImage();
-        direction="down";
+        direction="up";
     }
 
     public void setDefaultValues() {
-        worldX = gp.tileSize * 2;
-        worldY = gp.tileSize *7;
+        worldX = gp.tileSize * 1;
+        worldY = gp.tileSize *11;
         speed = 2;
     }
 
