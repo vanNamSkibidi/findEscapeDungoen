@@ -1,12 +1,11 @@
 package newProject.entity;
 
+import newProject.findPath.PathFinder;
 import newProject.test2.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
 
 public class MonkeyDemon extends Entity {
     public MonkeyDemon(GamePanel gp) {
@@ -15,7 +14,6 @@ public class MonkeyDemon extends Entity {
         speed = 1;
         getImage();
     }
-
     public void getImage() {
         try {
             up1 = ImageIO.read(new File("src/res/monster/left1.png"));
@@ -30,63 +28,56 @@ public class MonkeyDemon extends Entity {
             e.printStackTrace();
         }
     }
-    int idx=1;
-    ArrayList<String> dir= new ArrayList<>();
-//    {"up", "up","up","right","down","down","down","right","right","up","up","up","up","up","up","up","up","up","right","up","up","up","up","left","left","left","left"}
-
     @Override
     public void setAction() {
-        if (dir.size()==0) {
-            gp.pathFinder.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, 2, 1);
-            for (int i = gp.pathFinder.path.size()-2; i >=0 ; i--) {
-                dir.add(gp.pathFinder.path.get(i));
-            }
+        if (!onPath) {
+            int eCol = 2;
+            int eRow = 1;
+            searchPath(eCol, eRow);
+            onPath = true;
+            gp.pathFinder.path.pop(); // Clear the path after each action
         }
-        if (idx < dir.size()) {
-            if (actionLockCounter == 0) {
-                direction = dir.get(idx++);
-            }
-            if (++actionLockCounter == 48) {
-                actionLockCounter = 0;
-            }
-        } else {
-            actionLockCounter++;
-            if (actionLockCounter==200) {
-                Random ra = new Random();
-                int val = ra.nextInt(200);
-                if (val < 50) {
-                    direction = "up";
-                } else if (val < 100) {
-                    direction = "down";
-                } else if (val < 150) {
-                    direction = "left";
-                } else if (val < 200) {
-                    direction = "right";
-                }
-                actionLockCounter=0;
-            }
+        // Update direction based on the next step in the path
+        if (!gp.pathFinder.path.isEmpty()) {
+            PathFinder.Node nextStep = gp.pathFinder.path.peek();
+            if (worldX / 48 < nextStep.y) direction = "right";
+            else if (worldX / 48 > nextStep.y) direction = "left";
+            else if (worldY / 48 > nextStep.x) direction = "up";
+            else if (worldY / 48 < nextStep.x) direction = "down";
         }
+
+    }
+
+//    @Override
+//    public void setAction() {
+//        actionLockCounter++;
 //        if (!onPath) {
 //            int eCol = 2;
 //            int eRow = 1;
-//            searchPath(eCol, eRow);
-//            onPath = true;
-//            if (!gp.pathFinder.path.isEmpty()) gp.pathFinder.path.remove(gp.pathFinder.path.size()-1);
-//            switch (gp.pathFinder.path.get(gp.pathFinder.path.size() - 1) - 1) {
-//                case 0 -> direction = "up";
-//                case 1 -> direction = "left";
-//                case 2 -> direction = "down";
-//                case 3 -> direction = "right";
+//            if (actionLockCounter==48) {
+//                searchPath(eCol, eRow);
+////            onPath = true;
+//                gp.pathFinder.path.pop();
+//                actionLockCounter=0;
 //            }
 //        }
-//        actionLockCounter++;
-//        if (actionLockCounter == 4) {
-//            actionLockCounter = 0;
-//            if (!gp.pathFinder.path.isEmpty()) {
-//                if (worldY == 2 && worldX == 1) onPath = true;
-//                else gp.pathFinder.path.remove(gp.pathFinder.path.size()-1);
-//            }
-//        }
-
-    }
+////        else {
+////            actionLockCounter++;
+////            if (actionLockCounter == 120) {
+////                Random random = new Random();
+////                int i = random.nextInt(200);
+////                if (i <= 50) {
+////                    direction = "up";
+////                } else if (i <= 100) {
+////                    direction = "down";
+////                } else if (i <= 150) {
+////                    direction = "left";
+////                } else {
+////                    direction = "right";
+////                }
+////
+////                actionLockCounter = 0;
+////            }
+////        }
+//    }
 }
