@@ -134,23 +134,23 @@ public class Test {
     }
 
     //
-//    public static void main(String[] args) {
+    public static void main(String[] args) {
 //        getPath(2, 14, 2, 1);
 //        for (int i = path.size()-2; i >0 ; i--) {
 //            System.out.println(path.get(i));
 //        }
-////        while (!path.isEmpty()) {
-////            System.out.println(path.peek().y +" "+ path.pop().x);
-////        }
-////        Test2 test2 = new Test2();
-////        test2.findPathUsingBFS(1, 2, 2,4);
-//    }
-    public static void main(String[] args) {
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                System.out.print(map[i][j]);
-            }
-            System.out.println();
-        }
+//        while (!path.isEmpty()) {
+//            System.out.println(path.peek().y +" "+ path.pop().x);
+//        }
+        Test2 test2 = new Test2();
+        test2.getPath(1, 2, 2,4);
     }
+//    public static void main(String[] args) {
+//        for (int i = 0; i < map.length; i++) {
+//            for (int j = 0; j < map[0].length; j++) {
+//                System.out.print(map[i][j]);
+//            }
+//            System.out.println();
+//        }
+//    }
 }

@@ -11,7 +11,7 @@ public class MonkeyDemon extends Entity {
     public MonkeyDemon(GamePanel gp) {
         super(gp);
         direction = "down";
-        speed = 1;
+        speed = 4;
         getImage();
     }
 

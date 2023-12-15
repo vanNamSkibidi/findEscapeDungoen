@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -19,6 +20,7 @@ public class Test2 {
     };
     Queue<Node> queue = new LinkedList<>();
     Node temp;
+    public ArrayList<String> path;
     void findPathUsingBFS(int sx, int sy, int ex, int ey) {
         boolean[][] visited = new boolean[map.length][map[0].length];
         queue.offer(new Node(sx, sy));
@@ -76,5 +78,12 @@ public class Test2 {
             System.out.println(temp.x + " " + temp.y);
             temp = temp.dir;
         }
+    }
+    void getPath(int startCol, int startRow, int colTh, int rowTh) {
+        findPathUsingBFS(startCol, startRow, colTh, rowTh);
+
+//            gp.keyH.moved=false;
+        path = new ArrayList<>();
+
     }
 }
