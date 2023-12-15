@@ -17,7 +17,6 @@ public class Entity {
     public Rectangle solidArea = new Rectangle(12, 24, 24, 24);
     public boolean collisionOn;
     public int actionLockCounter = 0;
-    public boolean onPath = false;
 
     public Entity(GamePanel gp) {
         this.gp = gp;
@@ -76,11 +75,11 @@ public class Entity {
         }
     }
     public void update() {
-        // Check collision
+        // check collision
         setAction();
         checkCollision();
 
-        // Update position
+        // update position
         if (!collisionOn) {
             switch (direction) {
                 case "up" -> worldY -= speed;
@@ -90,7 +89,7 @@ public class Entity {
             }
         }
 
-        // Update sprite
+        // update sprite
         spriteCounter++;
         if (spriteCounter > 200) {
             if (spriteNum == 1) spriteNum = 2;

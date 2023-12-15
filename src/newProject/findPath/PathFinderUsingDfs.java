@@ -3,10 +3,9 @@ package newProject.findPath;
 import newProject.test2.GamePanel;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
-public class PathFinder {
+public class PathFinderUsingDfs {
     GamePanel gp;
     public class Node {
         public int x;
@@ -19,7 +18,7 @@ public class PathFinder {
             this.direction = 0;
         }
     }
-    public PathFinder(GamePanel gp) {
+    public PathFinderUsingDfs(GamePanel gp) {
         this.gp = gp;
     }
     Stack<Node> stack = new Stack<>();

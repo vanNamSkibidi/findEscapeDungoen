@@ -2,7 +2,7 @@ package newProject.test2;
 
 import newProject.entity.Entity;
 import newProject.entity.Player;
-import newProject.findPath.PathFinder;
+import newProject.findPath.PathFinderUsingDfs;
 import newProject.tile.TileManager;
 
 import javax.swing.*;
@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[] monsters= new Entity[10];
     public TileManager tileManager = new TileManager(this);
     public boolean gameOver;
-    public PathFinder pathFinder = new PathFinder(this);
+    public PathFinderUsingDfs pathFinder = new PathFinderUsingDfs(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
