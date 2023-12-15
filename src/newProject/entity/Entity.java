@@ -34,28 +34,27 @@ public class Entity {
             screenY = worldY - gp.player.worldY + gp.player.screenY;
 
             switch (direction) {
-                case "up":
+                case "up" -> {
                     if (spriteNum == 1) {
                         image = up1;
                     } else image = up2;
-                    break;
-                case "down":
+                }
+                case "down" -> {
                     if (spriteNum == 1) {
                         image = down1;
                     } else image = down2;
-                    break;
-                case "left":
+                }
+                case "left" -> {
                     if (spriteNum == 1) {
                         image = left1;
                     } else image = left2;
-                    break;
-                case "right":
+                }
+                case "right" -> {
                     if (spriteNum == 1) {
                         image = right1;
                     } else image = right2;
-                    break;
+                }
             }
-            ;
             g2.drawImage(image, screenX, screenY, 48, 48, null);
         }
     }
@@ -97,7 +96,7 @@ public class Entity {
             spriteCounter = 0;
         }
     }
-    public void searchPath(int eCol, int eRow) {
-        gp.pathFinder.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, eCol, eRow);
-    }
+//    public void searchPath(int eCol, int eRow) {
+//        gp.pathFinderUsingDfs.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, eCol, eRow);
+//    }
 }

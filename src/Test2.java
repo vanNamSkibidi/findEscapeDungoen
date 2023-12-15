@@ -12,17 +12,17 @@ public class Test2 {
             this.y = y;
         }
     }
-    static int[][] map = {
-            {1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 1, 1},
-            {1, 0, 1, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1}
-    };
-    Queue<Node> queue = new LinkedList<>();
-    Node temp;
-    public ArrayList<String> path;
-    void findPathUsingBFS(int sx, int sy, int ex, int ey) {
-        boolean[][] visited = new boolean[map.length][map[0].length];
+//    static int[][] Test.map = {
+//            {1, 1, 1, 1, 1, 1},
+//            {1, 0, 0, 0, 1, 1},
+//            {1, 0, 1, 0, 0, 1},
+//            {1, 1, 1, 1, 1, 1}
+//    };
+    static Queue<Node> queue = new LinkedList<>();
+    static Node temp;
+    public static ArrayList<String> path;
+    static void findPathUsingBFS(int sy, int sx, int ey, int ex) {
+        boolean[][] visited = new boolean[Test.map.length][Test.map[0].length];
         queue.offer(new Node(sx, sy));
         visited[sx][sy] = true;
         Node newNode;
@@ -32,9 +32,13 @@ public class Test2 {
                 break;
             }
             if (!visited[temp.x][temp.y-1]&&
-                    map[temp.x][temp.y-1]!=1&&
-                    map[temp.x][temp.y-1]!=4&&
-                    map[temp.x][temp.y-1]!=5) {
+                    Test.map[temp.x][temp.y-1]!=1&&
+                    Test.map[temp.x][temp.y-1]!=4&&
+                    Test.map[temp.x][temp.y-1]!=5) {
+//                if (temp.x==ex&&temp.y-1==ey) {
+//                    queue = new LinkedList<>();
+//                    break;
+//                }
                 newNode = new Node(temp.x, temp.y-1);
                 newNode.dir = temp;
                 visited[temp.x][temp.y-1] = true;
@@ -42,9 +46,13 @@ public class Test2 {
 
             }
             if (!visited[temp.x][temp.y+1]&&
-                    map[temp.x][temp.y+1]!=1&&
-                    map[temp.x][temp.y+1]!=4&&
-                    map[temp.x][temp.y+1]!=5) {
+                    Test.map[temp.x][temp.y+1]!=1&&
+                    Test.map[temp.x][temp.y+1]!=4&&
+                    Test.map[temp.x][temp.y+1]!=5) {
+//                if (temp.x==ex&&temp.y+1==ey) {
+//                    queue = new LinkedList<>();
+//                    break;
+//                }
                 newNode = new Node(temp.x, temp.y+1);
                 newNode.dir = temp;
                 visited[temp.x][temp.y+1] = true;
@@ -52,9 +60,13 @@ public class Test2 {
                 queue.offer(newNode);
             }
             if (!visited[temp.x-1][temp.y]&&
-                    map[temp.x-1][temp.y]!=1&&
-                    map[temp.x-1][temp.y]!=4&&
-                    map[temp.x-1][temp.y]!=5) {
+                    Test.map[temp.x-1][temp.y]!=1&&
+                    Test.map[temp.x-1][temp.y]!=4&&
+                    Test.map[temp.x-1][temp.y]!=5) {
+//                if (temp.x-1==ex&&temp.y==ey) {
+//                    queue = new LinkedList<>();
+//                    break;
+//                }
                 newNode = new Node(temp.x-1, temp.y);
                 newNode.dir = temp;
                 visited[temp.x-1][temp.y] = true;
@@ -63,27 +75,39 @@ public class Test2 {
 
             }
             if (!visited[temp.x+1][temp.y]&&
-                    map[temp.x+1][temp.y]!=1&&
-                    map[temp.x+1][temp.y]!=4&&
-                    map[temp.x+1][temp.y]!=5) {
+                    Test.map[temp.x+1][temp.y]!=1&&
+                    Test.map[temp.x+1][temp.y]!=4&&
+                    Test.map[temp.x+1][temp.y]!=5) {
+//                if (temp.x+1==ex&&temp.y==ey) {
+//                    queue = new LinkedList<>();
+//                    break;
+//                }
                 newNode = new Node(temp.x+1, temp.y);
                 newNode.dir = temp;
-                visited[temp.x][temp.y+1] = true;
+                visited[temp.x+1][temp.y] = true;
 
                 queue.offer(newNode);
 
             }
         }
-        while (temp.dir!=null) {
-            System.out.println(temp.x + " " + temp.y);
-            temp = temp.dir;
+        path=new ArrayList<>();
+        while (temp!=null&&temp.dir!=null) {
+            if (temp.dir.x+1==temp.x) {
+                path.add("down");
+            } else if (temp.dir.y+1==temp.y) {
+                path.add("right");
+            } else if (temp.dir.x-1==temp.x) {
+                path.add("up");
+            } else path.add("left");
+            temp=temp.dir;
+        }
+        for (int i=0;i<path.size();i++) {
+            System.out.println(path.get(i));
         }
     }
-    void getPath(int startCol, int startRow, int colTh, int rowTh) {
-        findPathUsingBFS(startCol, startRow, colTh, rowTh);
 
-//            gp.keyH.moved=false;
-        path = new ArrayList<>();
-
+    public static void main(String[] args) {
+        findPathUsingBFS(2, 14, 2, 2);
     }
+
 }

@@ -89,27 +89,27 @@ public class Player extends Entity {
         BufferedImage image = null;
 //        Image image = null;
         switch (direction) {
-            case "up" :
+            case "up" -> {
                 if (spriteNum == 1) {
                     image = up1;
-                }else image = up2;
-                break;
-            case "down" :
+                } else image = up2;
+            }
+            case "down" -> {
                 if (spriteNum == 1) {
                     image = down1;
-                }else image = down2;
-                break;
-            case "left" :
+                } else image = down2;
+            }
+            case "left" -> {
                 if (spriteNum == 1) {
                     image = left1;
-                }else image = left2;
-                break;
-            case "right" :
+                } else image = left2;
+            }
+            case "right" -> {
                 if (spriteNum == 1) {
                     image = right1;
-                }else image = right2;
-                break;
-        };
+                } else image = right2;
+            }
+        }
         g2d.drawImage(image, screenX,screenY,gp.tileSize, gp.tileSize, null);
     }
 }

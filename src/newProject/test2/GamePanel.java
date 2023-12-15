@@ -2,6 +2,7 @@ package newProject.test2;
 
 import newProject.entity.Entity;
 import newProject.entity.Player;
+import newProject.findPath.PathFinderUsingBfs;
 import newProject.findPath.PathFinderUsingDfs;
 import newProject.tile.TileManager;
 
@@ -16,8 +17,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxScreenRow = 12;
     public final int screenWidth = maxScreenCol * tileSize;
     public final int screenHeight = maxScreenRow * tileSize;
-    public final int maxWorldCol = 47;
-    public final int maxWorldRow = 56;
+//    public final int maxWorldCol = 47;
+//    public final int maxWorldRow = 56;
 //    public final int worldWidth = tileSize * maxWorldCol;
 //    public final int worldHeight = tileSize * maxWorldRow;
 
@@ -30,7 +31,9 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[] monsters= new Entity[10];
     public TileManager tileManager = new TileManager(this);
     public boolean gameOver;
-    public PathFinderUsingDfs pathFinder = new PathFinderUsingDfs(this);
+    public String DifficultLevel = "hardest";
+    public PathFinderUsingDfs pathFinderUsingDfs = new PathFinderUsingDfs(this);
+    public PathFinderUsingBfs pathFinderUsingBfs = new PathFinderUsingBfs(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -70,9 +73,9 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         if (gameOver) return;
         player.update();
-        for (int i = 0; i < monsters.length; i++) {
-            if (monsters[i]!=null) {
-                monsters[i].update();
+        for (Entity monster : monsters) {
+            if (monster != null) {
+                monster.update();
             }
         }
     }
@@ -84,9 +87,9 @@ public class GamePanel extends JPanel implements Runnable {
         player.draw(g2);
         
         //monster
-        for (int i = 0; i < monsters.length; i++) {
-            if (monsters[i] != null) {
-                monsters[i].draw(g2, this);
+        for (Entity monster : monsters) {
+            if (monster != null) {
+                monster.draw(g2, this);
             }
         }
         g2.dispose();
