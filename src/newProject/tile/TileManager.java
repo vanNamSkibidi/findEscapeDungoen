@@ -1,7 +1,10 @@
 package newProject.tile;
 import newProject.test2.GamePanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class TileManager {
     GamePanel gp;
@@ -38,7 +41,7 @@ public class TileManager {
             {1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 2, 3, 2, 3, 2, 3, 1},
             {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 2, 2, 1, 3, 2, 3, 2, 1, 1, 1, 1, 1, 2, 1, 1, 4, 1, 1, 2, 1},
             {1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 2, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1},
-            {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 3, 1, 1, 2, 1, 1, 1, 1, 4, 2, 1, 1, 0, 1, 1, 2, 1},
+            {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 3, 1, 1, 2, 1, 1, 1, 1, 4, 2, 1, 1, 6, 1, 1, 2, 1},
             {1, 1, 1, 1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 1, 1, 1, 1, 4, 3, 1, 2, 2, 2, 1, 3, 1},
             {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 4, 2, 1, 2, 2, 2, 1, 2, 1},
             {1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 2, 2, 2, 1, 3, 1},
@@ -64,39 +67,35 @@ public class TileManager {
         getTileImage();
 //        loadMap();
         colors = new Color[10];
-        colors[0]=new Color(4,76,1);
         colors[1]=Color.BLACK;
-        colors[2]=Color.CYAN;
-        colors[3] = Color.magenta;
-        colors[4]=Color.green;
-        colors[5]=Color.yellow;
-        colors[6]=Color.pink;
     }
     public void getTileImage() {
-//        try {
+        try {
             tiles[0] = new Tile();
             tiles[1] = new Tile();
+            tiles[8] = new Tile();
             tiles[2] = new Tile();
             tiles[3] = new Tile();
             tiles[4] = new Tile();
             tiles[5] = new Tile();
             tiles[6] = new Tile();
 
-//            tiles[0].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[1].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[2].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[3].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[4].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[5].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[6].image = ImageIO.read(new File("src/res/player/up1.png"));
+            tiles[0].image = ImageIO.read(new File("src/res/tile/6_2.png"));
+            tiles[8].image = ImageIO.read(new File("src/res/tile/1_1.png"));
+            tiles[2].image = ImageIO.read(new File("src/res/tile/2_3.png"));
+            tiles[3].image = ImageIO.read(new File("src/res/tile/3_1.png"));
+            tiles[4].image = ImageIO.read(new File("src/res/tile/4_2.png"));
+            tiles[5].image = ImageIO.read(new File("src/res/tile/5_1.png"));
+            tiles[6].image = ImageIO.read(new File("src/res/tile/6_1.png"));
 
-            tiles[1].collision = true;
+            tiles[8].collision = true;
             tiles[4].collision = true;
             tiles[5].collision = true;
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
+            tiles[1].collision = true;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 //    public void loadMap() {
@@ -133,11 +132,11 @@ public class TileManager {
                         && worldY - gp.tileSize < gp.player.worldY + gp.player.screenY)
                 {
 
-
-                    g2d.setColor(colors[map[i][j]]);
-                    g2d.fillRect(screenX, screenY, gp.tileSize, gp.tileSize);
+                    if (map[i][j]==1) {
+                        g2d.setColor(colors[map[i][j]]);
+                        g2d.fillRect(screenX, screenY, gp.tileSize, gp.tileSize);
+                    } else g2d.drawImage(tiles[map[i][j]].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
                 }
-    //            g2d.drawImage(tiles[0].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
             }
         }
     }

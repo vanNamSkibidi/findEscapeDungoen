@@ -1,4 +1,4 @@
-package hw8_22001622_PhamVanNam.geeksForGeeks;
+package hw.hw8_22001622_PhamVanNam.geeksForGeeks;
 
 public class exc10 {
     public int isPossible(int[][] paths) {

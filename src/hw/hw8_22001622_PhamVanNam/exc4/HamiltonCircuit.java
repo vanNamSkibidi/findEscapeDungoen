@@ -1,6 +1,5 @@
-package hw8_22001622_PhamVanNam.exc4;
+package hw.hw8_22001622_PhamVanNam.exc4;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class HamiltonCircuit {

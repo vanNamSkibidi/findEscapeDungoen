@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class MonkeyDemon extends Entity {
     public MonkeyDemon(GamePanel gp) {
         super(gp);
-        direction = "down";
-        speed = 4;
+        //direction = "down";
+        speed = 2;
         getImage();
     }
 
@@ -30,11 +30,10 @@ public class MonkeyDemon extends Entity {
         }
     }
 
-    ArrayList<String> dir;
-    int idx = 0;
-//    int resetPath=0;
+    private ArrayList<String> dir;
+    int arr = 0;
+    //   int resetPath=0;
     boolean onPath = false;
-
 
     @Override
     public void setAction() {
@@ -66,7 +65,7 @@ public class MonkeyDemon extends Entity {
                     dir.add(PathFinderUsingBfs.path.get(i));
                 }
             }
-            onPath=true;
+            onPath = true;
         }
 
         if (gp.keyH.moved) {
@@ -86,13 +85,14 @@ public class MonkeyDemon extends Entity {
                 }
             }
             gp.keyH.moved=false;
-            idx=0;
+            arr=0 ;
         }
-        if (idx < dir.size()) {
+        if (arr <  dir.size()) {
             if (actionLockCounter == 0) {
-                direction = dir.get(idx++);
+                direction =  dir.get(arr++);
+//                System.out.println("dir1 " + gp.monsters[1].direction);
             }
-            if (++actionLockCounter == 48/speed) {
+            if (++actionLockCounter == 48/ speed) {
                 actionLockCounter = 0;
             }
         }

@@ -1,4 +1,4 @@
-package hw8_22001622_PhamVanNam.exc4;
+package hw.hw8_22001622_PhamVanNam.exc4;
 
 public class ShortestPathBetweenUAndV {
     static class Node {

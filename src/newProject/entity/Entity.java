@@ -20,9 +20,11 @@ public class Entity {
 
     public Entity(GamePanel gp) {
         this.gp = gp;
+        this.direction = "down";
+
     }
 
-    int screenX, screenY;
+    public int screenX, screenY;
     BufferedImage image;
 
     public void draw(Graphics2D g2, GamePanel gp) {
@@ -71,8 +73,17 @@ public class Entity {
                 && worldY - 24 <= gp.player.worldY && worldY + 24 >= gp.player.worldY) {
             gp.gameOver = true;
 //            collisionOn = true;
+        } else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 6) {
+            gp.winGame = true;
+        } else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 3) {
+            gp.count++;
+            gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] = 2;
+        }
+        if (gp.count == 10) {
+            gp.tileManager.map[31][51] = 7;
         }
     }
+
     public void update() {
         // check collision
         setAction();
@@ -90,13 +101,15 @@ public class Entity {
 
         // update sprite
         spriteCounter++;
-        if (spriteCounter > 200) {
+        if (spriteCounter > 10) {
             if (spriteNum == 1) spriteNum = 2;
             else spriteNum = 1;
             spriteCounter = 0;
         }
+
     }
 //    public void searchPath(int eCol, int eRow) {
-//        gp.pathFinderUsingDfs.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, eCol, eRow);
+//        gp
+//        .pathFinderUsingDfs.getPath((worldX+ solidArea.x) / 48, (worldY+ solidArea.y) / 48, eCol, eRow);
 //    }
 }

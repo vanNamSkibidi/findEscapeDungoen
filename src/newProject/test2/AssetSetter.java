@@ -20,7 +20,7 @@ public class AssetSetter {
 //        gp.monsters[7] = new MonkeyDemon(gp);
 
         gp.monsters[0].worldX = gp.tileSize * 2;//col
-        gp.monsters[0].worldY = gp.tileSize * 14;//row
+        gp.monsters[0].worldY = gp.tileSize * 2;//row
 //        gp.monsters[1].worldX = gp.tileSize * 5;
 //        gp.monsters[1].worldY = gp.tileSize * 5;
 //        gp.monsters[2].worldX = gp.tileSize * 47;
