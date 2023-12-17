@@ -6,7 +6,7 @@ import java.awt.*;
 public class Window {
 
 
-    //  JLabel gemCountLabel = new JLabel("Total-0", SwingConstants.LEFT);
+    //  JLabel gemCountLabel = new JLabel("Total-0s", SwingConstants.LEFT);
     public Window() {
 
         JFrame window = new JFrame("Escape the dungeon");

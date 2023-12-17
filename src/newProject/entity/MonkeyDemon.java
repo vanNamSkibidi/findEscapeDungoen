@@ -11,7 +11,7 @@ public class MonkeyDemon extends Entity {
     public MonkeyDemon(GamePanel gp) {
         super(gp);
         //direction = "down";
-        speed = 2;
+        speed = 1;
         getImage();
     }
 
@@ -32,9 +32,10 @@ public class MonkeyDemon extends Entity {
 
     private ArrayList<String> dir;
     int arr = 0;
-    //   int resetPath=0;
+       int resetPath=0;
     boolean onPath = false;
 
+    int checkPath=0;
     @Override
     public void setAction() {
 
@@ -48,6 +49,24 @@ public class MonkeyDemon extends Entity {
 //        }
 //        if (resetPath==240) {
 //            resetPath=0;
+//        }
+//        if (checkPath++==100) {
+//            checkPath=0;
+//            if (gp.DifficultLevel.equals("balanced")) {
+//                gp.pathFinderUsingDfs.getPath((worldX + solidArea.x) / 48, (worldY + solidArea.y) / 48
+//                        , (gp.player.worldX + solidArea.x) / 48, (gp.player.worldY + solidArea.y) / 48);
+//                dir.clear();
+//                for (int i = gp.pathFinderUsingDfs.path.size() - 1; i >= 1; i--) {
+//                    dir.add(gp.pathFinderUsingDfs.path.get(i));
+//                }
+//            } else {
+//                gp.pathFinderUsingBfs.findPathUsingBFS((worldX + solidArea.x) / 48, (worldY + solidArea.y) / 48
+//                        , (gp.player.worldX + solidArea.x) / 48, (gp.player.worldY + solidArea.y) / 48);
+//                dir.clear();
+//                for (int i = PathFinderUsingBfs.path.size() - 1; i >= 0; i--) {
+//                    dir.add(PathFinderUsingBfs.path.get(i));
+//                }
+//            }
 //        }
         if (!onPath) {
             if (gp.DifficultLevel.equals("balanced")) {

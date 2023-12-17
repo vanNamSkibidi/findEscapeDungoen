@@ -38,7 +38,8 @@ public class PathFinderUsingBfs {
             if (!visited[temp.x][temp.y-1]&&
                     gp.tileManager.map[temp.x][temp.y-1]!=1&&
                     gp.tileManager.map[temp.x][temp.y-1]!=4&&
-                    gp.tileManager.map[temp.x][temp.y-1]!=5) {
+                    gp.tileManager.map[temp.x][temp.y-1]!=5&&
+                    gp.tileManager.map[temp.x][temp.y-1]!=8) {
 //                if (temp.x==ex&&temp.y-1==ey) {
 //                    queue = new LinkedList<>();
 //                    break;
@@ -52,7 +53,8 @@ public class PathFinderUsingBfs {
             if (!visited[temp.x][temp.y+1]&&
                     gp.tileManager.map[temp.x][temp.y+1]!=1&&
                     gp.tileManager.map[temp.x][temp.y+1]!=4&&
-                    gp.tileManager.map[temp.x][temp.y+1]!=5) {
+                    gp.tileManager.map[temp.x][temp.y+1]!=5&&
+                    gp.tileManager.map[temp.x][temp.y+1]!=8) {
 //                if (temp.x==ex&&temp.y+1==ey) {
 //                    queue = new LinkedList<>();
 //                    break;
@@ -66,7 +68,8 @@ public class PathFinderUsingBfs {
             if (!visited[temp.x-1][temp.y]&&
                     gp.tileManager.map[temp.x-1][temp.y]!=1&&
                     gp.tileManager.map[temp.x-1][temp.y]!=4&&
-                    gp.tileManager.map[temp.x-1][temp.y]!=5) {
+                    gp.tileManager.map[temp.x-1][temp.y]!=5&&
+                    gp.tileManager.map[temp.x-1][temp.y]!=8) {
 //                if (temp.x-1==ex&&temp.y==ey) {
 //                    queue = new LinkedList<>();
 //                    break;
@@ -81,7 +84,8 @@ public class PathFinderUsingBfs {
             if (!visited[temp.x+1][temp.y]&&
                     gp.tileManager.map[temp.x+1][temp.y]!=1&&
                     gp.tileManager.map[temp.x+1][temp.y]!=4&&
-                    gp.tileManager.map[temp.x+1][temp.y]!=5) {
+                    gp.tileManager.map[temp.x+1][temp.y]!=5&&
+                    gp.tileManager.map[temp.x+1][temp.y]!=8) {
 //                if (temp.x+1==ex&&temp.y==ey) {
 //                    queue = new LinkedList<>();
 //                    break;

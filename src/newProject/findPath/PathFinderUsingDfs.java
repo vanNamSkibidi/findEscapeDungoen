@@ -46,26 +46,29 @@ public class PathFinderUsingDfs {
             }
             if (dir == 0) {//up
                 if (x - 1 > 0 && gp.tileManager.map[x - 1][y] != 1 && gp.tileManager.map[x-1][y] != 4
-                        && gp.tileManager.map[x-1][y] != 5&& !visited[x - 1][y]) {
+                        && gp.tileManager.map[x-1][y] != 5&& gp.tileManager.map[x-1][y] != 8&& !visited[x - 1][y]) {
                     visited[x - 1][y] = true;
                     stack.push(new Node(x - 1, y));
                 }
             } else if (dir == 1) {//left
                 if (y - 1 > 0 && gp.tileManager.map[x][y - 1] != 1
                         && gp.tileManager.map[x][y - 1] != 4&& gp.tileManager.map[x][y - 1] != 5
+                        && gp.tileManager.map[x][y - 1] != 8
                         && !visited[x][y - 1]) {
                     visited[x][y - 1] = true;
                     stack.push(new Node(x, y - 1));
                 }
             } else if (dir == 2) {//down
                 if (x + 1 < gp.tileManager.map.length && gp.tileManager.map[x + 1][y] != 1
-                        && gp.tileManager.map[x + 1][y] != 4&& gp.tileManager.map[x + 1][y] != 5 && !visited[x + 1][y]) {
+                        && gp.tileManager.map[x + 1][y] != 4&& gp.tileManager.map[x + 1][y] != 5
+                        && gp.tileManager.map[x + 1][y] != 8 && !visited[x + 1][y]) {
                     visited[x + 1][y] = true;
                     stack.push(new Node(x + 1, y));
                 }
             } else if (dir == 3) {//right
                 if (y + 1 < gp.tileManager.map[0].length && gp.tileManager.map[x][y + 1] != 1
-                        && gp.tileManager.map[x][y + 1] != 4&& gp.tileManager.map[x][y + 1] != 5 && !visited[x][y + 1]) {
+                        && gp.tileManager.map[x][y + 1] != 4&& gp.tileManager.map[x][y + 1] != 5
+                        && gp.tileManager.map[x][y + 1] != 8 && !visited[x][y + 1]) {
                     visited[x][y + 1] = true;
                     stack.push(new Node(x, y + 1));
                 }
