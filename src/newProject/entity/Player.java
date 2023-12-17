@@ -30,7 +30,7 @@ public class Player extends Entity {
     public void setDefaultValues() {
         worldX = gp.tileSize * 2;
         worldY = gp.tileSize * 10;
-        speed = 6;
+        speed = 2;
     }
 
     public void getPlayerImage() {

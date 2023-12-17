@@ -11,57 +11,44 @@ public class Interface extends JFrame implements ActionListener {
     JButton exit;
     JLabel bk;
 
-    public Interface() {
 
+    public Interface() {
         this.setTitle("Escape the dungeon");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(768, 576);
         this.setResizable(false);
-
-        ImageIcon logo = new ImageIcon("src\\project\\imag\\logo.png");
-
-        //  ImageIcon logo = new ImageIcon("src\\project\\project.test2\\imag");
-
         this.getContentPane().setBackground(Color.black);
-        this.setIconImage(logo.getImage());
-        ImageIcon iconBk = new ImageIcon("src\\project\\imag\\.png");
-        bk = new JLabel("",iconBk,JLabel.CENTER);
+        ImageIcon iconImag = new ImageIcon("src/res/lmao/startGame.png");
+        bk = new JLabel("",iconImag, JLabel.CENTER);
+        bk.setSize(768,576);
         add(bk);
         this.setLocationRelativeTo(null);
 
-        this.setVisible(true);
-
 
         start = new JButton();
-        start.setBounds(284, 100, 200, 100);
-        start.setBorderPainted(false);
-        start.setContentAreaFilled(false);
-
-
-        start = new JButton();
-        start.setBounds(284, 100, 200, 100);
+        start.setBounds(512, 176, 200, 100);
         start.setText("START");
         start.setFont(new Font("Comic Sans", Font.BOLD, 20));
         start.setForeground(Color.red);
         start.setBorderPainted(false);
         start.setContentAreaFilled(false);
         start.addActionListener(this);
-
         bk.add(start);
 
         huong = new JButton();
-        huong.setBounds(284, 200, 200, 100);
-        huong.setText("HOW TO PLAY");
+        huong.setBounds(512, 276, 200, 100);
+        huong.setText("DESCRIPTION");
         huong.setFont(new Font("Comic Sans", Font.BOLD, 20));
         huong.setForeground(Color.red);
         huong.setBorderPainted(false);
         huong.setContentAreaFilled(false);
+        huong.addActionListener(this);
         bk.add(huong);
 
         exit = new JButton();
-        exit.setBounds(284, 300, 200, 100);
+        exit.setBounds(512, 376, 200, 100);
         exit.setText("EXIT");
-        exit.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        exit.setFont(new Font("Comic Sans", Font.BOLD, 20));
         exit.setForeground(Color.red);
 
         exit.setBorderPainted(false);
@@ -79,7 +66,8 @@ public class Interface extends JFrame implements ActionListener {
             this.setVisible(false);
         }
         if (e.getSource() == huong) {
-
+            new Description();
+            this.setVisible(false);
         }
         if (e.getSource() == exit) {
             Exit exit1 = new Exit();

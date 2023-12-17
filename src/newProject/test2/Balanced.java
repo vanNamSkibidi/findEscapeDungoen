@@ -1,19 +1,16 @@
 package newProject.test2;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
 
-public class Window {
-
-
-    //  JLabel gemCountLabel = new JLabel("Total-0s", SwingConstants.LEFT);
-    public Window() {
+public class Balanced {
+    public Balanced() {
 
         JFrame window = new JFrame("Escape the dungeon");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(true);
         window.setLayout(new BorderLayout());
-        GamePanel gamePanel = new GamePanel(window);
+        GamePanel gamePanel = new GamePanel(window,"balanced");
         window.add(gamePanel, BorderLayout.CENTER);
         window.pack();
         //  window.add(gemCountLabel, BorderLayout.WEST);
@@ -22,9 +19,5 @@ public class Window {
 
         gamePanel.setUpGame();
         gamePanel.startGameThread();
-
     }
-//    public void updateGemCount(int gemCount) {
-//        gemCountLabel.setText("Total-" + gemCount);
-//    }
 }

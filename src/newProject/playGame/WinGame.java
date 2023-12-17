@@ -12,6 +12,7 @@ public class WinGame extends JFrame implements ActionListener {
     JLabel win;
     JLabel meme;
     public WinGame() {
+        this.setTitle("Escape the dungeon");
         this.setSize(768, 576);
         this.setResizable(false);
         this.getContentPane().setBackground(Color.black);

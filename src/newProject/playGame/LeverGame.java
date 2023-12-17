@@ -1,6 +1,8 @@
 package newProject.playGame;
 
-import newProject.test2.Window;
+import newProject.test2.Balanced;
+import newProject.test2.GamePanel;
+import newProject.test2.Hard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,12 +11,12 @@ import java.awt.event.ActionListener;
 
 public class LeverGame extends JFrame implements ActionListener {
     JButton hard;
-    JButton easy;
     JButton medium;
     JButton exit;
     JLabel bk;
-
+    GamePanel gamePanel;
     public LeverGame() {
+        this.setTitle("Escape the dungeon");
         this.setSize(768, 576);
         this.setResizable(false);
         ImageIcon logo = new ImageIcon("src\\project\\imag");
@@ -28,7 +30,7 @@ public class LeverGame extends JFrame implements ActionListener {
         hard = new JButton();
         hard.setBounds(284, 100, 200, 100);
         hard.setText("HARD");
-        hard.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        hard.setFont(new Font("Comic Sans", Font.BOLD, 20));
         hard.setForeground(Color.red);
         hard.setBorderPainted(false);
         hard.setContentAreaFilled(false);
@@ -38,27 +40,18 @@ public class LeverGame extends JFrame implements ActionListener {
         medium = new JButton();
         medium.setBounds(284, 200, 200, 100);
         medium.setText("MEDIUM");
-        medium.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        medium.setFont(new Font("Comic Sans", Font.BOLD, 20));
         medium.setForeground(Color.red);
         medium.setBorderPainted(false);
         medium.setContentAreaFilled(false);
         medium.addActionListener(this);
         bk.add(medium);
 
-        easy = new JButton();
-        easy.setBounds(284, 300, 200, 100);
-        easy.setText("EASY");
-        easy.setFont(new Font("Comic Sans", Font.BOLD, 25));
-        easy.setForeground(Color.red);
-        easy.setBorderPainted(false);
-        easy.setContentAreaFilled(false);
-        easy.addActionListener(this);
-        bk.add(easy);
 
         exit = new JButton();
-        exit.setBounds(284, 400, 200, 100);
+        exit.setBounds(284, 300, 200, 100);
         exit.setText("EXIT");
-        exit.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        exit.setFont(new Font("Comic Sans", Font.BOLD, 20));
         exit.setForeground(Color.red);
         exit.setBorderPainted(false);
         exit.setContentAreaFilled(false);
@@ -71,15 +64,12 @@ public class LeverGame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == hard) {
-            new Window();
+            new Hard();
             this.setVisible(false);
         }
         if (e.getSource() == medium) {
-
+            new Balanced();
             this.setVisible(false);
-        }
-        if (e.getSource() == easy) {
-
         }
         if (e.getSource() == exit) {
             Exit exit1 = new Exit();

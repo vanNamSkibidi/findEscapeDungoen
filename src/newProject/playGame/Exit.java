@@ -12,11 +12,10 @@ public class Exit extends JFrame implements ActionListener {
     public String check;
 
     public Exit() {
+        this.setTitle("Escape the dungeon");
         this.setSize(768, 576);
         this.setResizable(false);
-        //  ImageIcon logo = new ImageIcon("src\\project\\imag");
         this.getContentPane().setBackground(Color.black);
-        //  this.setIconImage(logo.getImage());
         exit = new JLabel("", JLabel.CENTER);
 
         add(exit);
@@ -51,7 +50,9 @@ public class Exit extends JFrame implements ActionListener {
                 System.exit(0);
             } else if (check == "lever") {
                 new Interface();
-            } else {
+            } else if (check == "again"){
+                new Interface();
+            }else {
                 new Interface();
             }
             this.setVisible(false);
@@ -61,8 +62,10 @@ public class Exit extends JFrame implements ActionListener {
                 new Interface();
             } else if (check == "lever") {
                 new LeverGame();
-            } else {
+            } else if (check == "again"){
                 new Again();
+            }else {
+                new Description();
             }
             this.setVisible(false);
         }

@@ -91,7 +91,7 @@ public class TileManager {
 
             tiles[8].collision = true;
             tiles[4].collision = true;
-            tiles[5].collision = true;
+//            tiles[5].collision = true;
             tiles[1].collision = true;
         }
         catch (IOException e) {

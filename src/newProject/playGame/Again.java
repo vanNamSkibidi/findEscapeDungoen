@@ -1,6 +1,7 @@
 package newProject.playGame;
 
-import newProject.test2.Window;
+import newProject.test2.Balanced;
+import newProject.test2.Hard;
 
 
 import javax.swing.*;
@@ -14,20 +15,19 @@ public class Again extends JFrame implements ActionListener {
     JLabel gameOver;
     JLabel over;
 
+    public int check;
 
     public Again() {
+        this.setTitle("Escape the dungeon");
         this.setSize(768, 576);
         this.setResizable(false);
-        //  ImageIcon logo = new ImageIcon("src\\project\\imag");
+        ImageIcon end = new ImageIcon("src/res/lmao/GameOver_1.png");
         this.getContentPane().setBackground(Color.black);
-        //  this.setIconImage(logo.getImage());
-        over = new JLabel("", JLabel.CENTER);
-
-        add(over);
+        over = new JLabel("", end,JLabel.CENTER);
+        over.setSize(768,576);
         this.setLocationRelativeTo(null);
-
         gameOver = new JLabel();
-        gameOver.setBounds(270, 50, 300, 200);
+        gameOver.setBounds(270, 30, 300, 200);
         gameOver.setText("GAME OVER!");
         gameOver.setFont(new Font("Comic Sans", Font.BOLD, 40));
         gameOver.setForeground(Color.red);
@@ -35,7 +35,7 @@ public class Again extends JFrame implements ActionListener {
 
         again = new JButton();
         again.setBounds(384, 238, 200, 100);
-        again.setText("restart");
+        again.setText("Restart");
         again.setFont(new Font("Comic Sans", Font.BOLD, 25));
         again.setForeground(Color.red);
         again.setBorderPainted(false);
@@ -45,13 +45,14 @@ public class Again extends JFrame implements ActionListener {
 
         exit = new JButton();
         exit.setBounds(184, 238, 200, 100);
-        exit.setText("exit the title");
+        exit.setText("Exit the title");
         exit.setFont(new Font("Comic Sans", Font.BOLD, 25));
         exit.setForeground(Color.red);
         exit.setBorderPainted(false);
         exit.setContentAreaFilled(false);
         exit.addActionListener(this);
         over.add(exit);
+        this.add(over);
         this.setVisible(true);
     }
 
@@ -63,8 +64,13 @@ public class Again extends JFrame implements ActionListener {
             this.setVisible(false);
         }
         if (e.getSource() == again) {
-            new Window();
-            this.setVisible(false);
+            if (check == 0) {
+                new Hard();
+                this.setVisible(false);
+            }else {
+                new Balanced();
+                this.setVisible(false);
+            }
         }
     }
 }

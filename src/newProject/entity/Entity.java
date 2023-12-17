@@ -73,15 +73,15 @@ public class Entity {
                 && worldY - 24 <= gp.player.worldY && worldY + 24 >= gp.player.worldY) {
             gp.gameOver = true;
 //            collisionOn = true;
-        }
-        else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 6) {
-            if ((gp.player.worldY + solidArea.y) / 48==10||(gp.player.worldY + solidArea.y) / 48==15) {
-                gp.gameOver=true;
+        } else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 6) {
+            if ((gp.player.worldY + solidArea.y) / 48 == 10 || (gp.player.worldY + solidArea.y) / 48 == 15) {
+                gp.gameOver = true;
             } else gp.winGame = true;
-        }
-        else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 3) {
+        } else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 3) {
             gp.count++;
             gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] = 2;
+        } else if (gp.tileManager.map[(gp.player.worldY + solidArea.y) / 48][(gp.player.worldX + solidArea.x) / 48] == 5) {
+            gp.gameOver = true;
         }
         if (gp.count == gp.totalSharp) {
             gp.tileManager.map[10][2] = 6;

@@ -34,24 +34,21 @@ public class GamePanel extends JPanel implements Runnable {
     public TileManager tileManager = new TileManager(this);
     public boolean gameOver;
     public boolean winGame;
-    public String DifficultLevel = "night mare";
+    public String DifficultLevel;
     public PathFinderUsingDfs pathFinderUsingDfs = new PathFinderUsingDfs(this);
     public PathFinderUsingBfs pathFinderUsingBfs = new PathFinderUsingBfs(this);
     public JFrame window;
     public int count = 0;
     public int totalSharp = 290;
-
-    public int getCount() {
-        return count;
-    }
-    JLabel gemCountLabel = new JLabel("Total-0", SwingConstants.LEFT);
-    public GamePanel(JFrame window) {
+    JLabel gemCountLabel = new JLabel("Remaining", SwingConstants.LEFT);
+    public GamePanel(JFrame window,String lever) {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
         this.window = window;
+        this.DifficultLevel = lever;
         window.add(gemCountLabel, BorderLayout.BEFORE_FIRST_LINE);
         startGameThread();
     }
@@ -59,7 +56,6 @@ public class GamePanel extends JPanel implements Runnable {
         if (count < totalSharp) {
             gemCountLabel.setText("Remaining : " + (totalSharp - gemCount) + " sharps");
         } else gemCountLabel.setText("Run as fast as\n you can towards the gate\n");
-
     }
     public void startGameThread() {
         gameThread = new Thread(this);
@@ -99,7 +95,12 @@ public class GamePanel extends JPanel implements Runnable {
             if (check) {
                 check = false;
                 window.dispose();
-                new Again();
+                Again again =new Again();
+                if(DifficultLevel == "hard"){
+                    again.check = 0;
+                }else {
+                    again.check = 1;
+                }
                 return;
             }
         }
